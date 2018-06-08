@@ -46,6 +46,8 @@ export default {
     const { penColor } = this
     const props = { penColor }
     this.pad = new SignaturePad(canvas, props)
+    this.pad.onBegin = () => this.$emit('pen-down')
+    this.pad.onEnd = () => this.$emit('pen-up')
     this.resizeCanvas()
   }
 }
