@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import TrainPage from '@/components/TrainPage'
 import ShapesPage from '@/components/ShapesPage'
 import Heng from '@/components/chinese/strokes/Heng'
+import Shu from '@/components/chinese/strokes/Shu'
+import HengShuWords from '@/components/chinese/words/HengShu'
 
 Vue.use(Router)
 
@@ -20,8 +22,18 @@ export default new Router({
     },
     {
       path: '/chinese/strokes/heng',
-      name: 'Heng',
+      name: 'heng',
       component: Heng
+    },
+    {
+      path: '/chinese/strokes/shu',
+      name: 'shu',
+      component: Shu
+    },
+    {
+      path: '/chinese/words/heng-shu',
+      name: 'hengShuWords',
+      component: HengShuWords
     }
   ]
 })

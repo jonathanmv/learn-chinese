@@ -1,6 +1,6 @@
 <template lang="html">
-  <b-container>
-    <h1>Write Chinese</h1>
+  <b-container v-if="slides && slides.length">
+    <h1>{{lessonTitle}}</h1>
     <div>
       <p>{{slide.description}}</p>
       <h3>{{slide.title}}</h3>
@@ -15,42 +15,20 @@
 
 <script>
 import brain from 'brain.js'
+
 import Chalkboard from '@/components/Chalkboard'
-import hengModel from './heng-model.json'
-
-const YI = 'Yī'
-const ER = 'Er'
-const SAN = 'Sān'
-
-const slides = [
-  {
-    title: 'Draw a horizontal line',
-    description: `Let's start with the basics of Chinese writing. Can you draw a horizontal line?`,
-    goal: YI
-  },
-  {
-    title: 'Draw a héng on top of another héng',
-    description: `Great! The horizontal line is called héng and is also the number 1 in Chinese. If you draw a héng on top of another héng you will be drawing the number 2.`,
-    goal: ER
-  },
-  {
-    title: 'Draw the number 3 in Chinese',
-    description: `Can you guess the number 3?`,
-    goal: SAN
-  }
-]
 
 export default {
   components: { Chalkboard },
+  properties: ['model', 'slides', 'title', 'nextLesson'],
   data: () => ({
-    net: null,
-    passed: false,
+    slideIndex: 0,
     eraser: false,
-    slideIndex: 0
+    passed: false
   }),
   computed: {
     slide () {
-      return slides[this.slideIndex]
+      return this.slides[this.slideIndex]
     }
   },
   methods: {
@@ -60,7 +38,7 @@ export default {
       this.passed = false
     },
     checkIfPassed () {
-      const { net, slideIndex } = this
+      const { net, slides, slideIndex } = this
       const vector = this.$refs.paper.getImageVector()
       const interpretation = brain.likely(vector, net)
       const { goal } = slides[slideIndex]
@@ -70,11 +48,11 @@ export default {
       this.newPaper()
     },
     next () {
-      if (this.slideIndex + 1 < slides.length) {
+      if (this.slideIndex + 1 < this.slides.length) {
         this.newPaper()
         this.slideIndex++
       } else {
-        this.$router.push({ name: 'shu' })
+        this.$router.push({ name: this.nextLesson })
       }
     },
     penUp () {
@@ -84,7 +62,7 @@ export default {
   },
   mounted () {
     this.net = new brain.NeuralNetwork()
-    this.net.fromJSON(hengModel.model)
+    this.net.fromJSON(this.model)
   }
 }
 </script>
