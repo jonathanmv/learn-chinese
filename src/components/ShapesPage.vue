@@ -2,11 +2,6 @@
   <b-container>
     <b-row>
       <b-col>
-        <LoadModel @model="modelLoaded" />
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
         <h1>Known shapes</h1>
         <ul>
           <li :key="name" v-for="name in shapeNames">
@@ -29,7 +24,7 @@
         </div>
       </b-col>
       <b-col v-if="addingShape">
-        <AddShape @shape="addShape" />
+        <AddShape @shape="addShape" :resolution="resolution" />
       </b-col>
       <b-col v-if="trained && !addingShape">
         <Chalkboard ref="canvasTest"/>
@@ -62,7 +57,8 @@ export default {
     training: false,
     trainingResults: {},
     trained: false,
-    prediction: null
+    prediction: null,
+    resolution: 20
   }),
   methods: {
     addShape (shape) {
@@ -81,7 +77,7 @@ export default {
       this.trained = true
     },
     predict () {
-      const data = this.$refs.canvasTest.getImageVector()
+      const data = this.$refs.canvasTest.getImageVector(this.resolution)
       this.prediction = brain.likely(data, this.net)
     },
     clear () {

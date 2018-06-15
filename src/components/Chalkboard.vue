@@ -1,5 +1,5 @@
 <template lang="html">
-  <canvas ref="canvas" class="Chalkboard-canvas border" :style="{ 'background-color': backgroundColor }"></canvas>
+  <canvas ref="canvas" class="border" width="200" height="200" :style="{ 'background-color': backgroundColor }"></canvas>
 </template>
 
 <script>
@@ -13,21 +13,24 @@ export default {
   props: {
     penColor: {
       // default: '#f4f4f0'
-      default: '#000'
+      default: '#404047'
     },
     backgroundColor: {
       // default: '#404047'
       default: '#FFF'
+    },
+    showHits: {
+      default: false
     }
   },
   data: () => ({
     pad: null
   }),
   methods: {
-    getImageVector () {
+    getImageVector (columns = 20) {
       const canvas = this.$refs.canvas
-      const columns = 20
-      return getVectorFromCanvas({ canvas, columns })
+      const { showHits } = this
+      return getVectorFromCanvas({ canvas, columns, showHits })
     },
     clear () {
       this.pad.clear()
@@ -48,16 +51,10 @@ export default {
     this.pad = new SignaturePad(canvas, props)
     this.pad.onBegin = () => this.$emit('pen-down')
     this.pad.onEnd = () => this.$emit('pen-up')
-    this.resizeCanvas()
+    // this.resizeCanvas()
   }
 }
 </script>
 
 <style lang="css" scoped>
-  .Chalkboard-canvas {
-    width: 200px;
-    height: 200px;
-    /* width: 100%;
-    height: 100%; */
-  }
 </style>
