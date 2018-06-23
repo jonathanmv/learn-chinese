@@ -1,7 +1,11 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+  <b-container id="app" fluid>
+    <b-row align-h="center">
+      <b-col sm="12" md="8" lg="6">
+        <router-view />
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
