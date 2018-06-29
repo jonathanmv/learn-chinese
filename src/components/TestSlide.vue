@@ -1,36 +1,37 @@
 <template lang="html">
-  <div>
-    <b-row>
-      <b-col>
-          <h1>{{slide.title}}</h1>
-      </b-col>
-      <b-col>
-        <b-link to="/chinese/roadmap">X</b-link>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <TestChalkboard :model="slide.model" :goal="slide.goal" passed="onPassed" />
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <p>{{slide.description}}</p>
-      </b-col>
-    </b-row>
+  <div class="">
+    <h1 class="display-4 text-center">{{slide.title}}</h1>
+    <TestChalkboard ref="board" @check="checkDrawing" />
+    <p class="lead text-center">{{slide.description}}</p>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import TestChalkboard from '@/components/TestChalkboard'
 
 export default {
   props: ['slide'],
   components: { TestChalkboard },
   methods: {
-    onPassed () {
-      alert('Next')
+    ...mapActions([
+      'setCurrentDrawingValid'
+    ]),
+    checkDrawing (vector) {
+      const isValid = this.$store.getters.isValidDrawing(vector)
+      this.setCurrentDrawingValid(isValid)
+    },
+    reset () {
+      this.setCurrentDrawingValid(false)
+      this.$refs.board.clear()
     }
+  },
+  mounted () {
+    this.reset()
+  },
+  updated () {
+    console.log('updated')
+    this.reset()
   }
 }
 </script>

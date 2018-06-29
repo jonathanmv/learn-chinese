@@ -14,6 +14,8 @@ const setCurrentLevelIfNone = ({ to, from, next }, store) => {
   const matchLevel = getLevelWithPathName(store, pathName)
   if (matchLevel && !store.currentLevel) {
     store.commit('setCurrentLevel', matchLevel)
+    const { modelName } = matchLevel
+    store.dispatch('loadModel', modelName)
   }
   next()
 }

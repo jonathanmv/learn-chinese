@@ -4,7 +4,6 @@
     <b-progress :value="slidesProgress" class="m-3"></b-progress>
     <ShowSlide v-if="currentSlide.type === 'show'" :slide="currentSlide" />
     <TestSlide v-if="currentSlide.type === 'test'" :slide="currentSlide" />
-    <!-- <SlidesNavigation :slides="" /> -->
     <b-button v-if="canPreviousSlide" @click="previousSlide">&lt;</b-button>
     <b-button v-if="canNextSlide" @click="nextSlide">&gt;</b-button>
   </div>

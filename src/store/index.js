@@ -12,7 +12,9 @@ const store = new Vuex.Store({
   state: {
     currentLevel: null,
     currentSlideIndex: 0,
-    levels
+    currentDrawingValid: false,
+    levels,
+    models: {}
   },
   getters,
   mutations,

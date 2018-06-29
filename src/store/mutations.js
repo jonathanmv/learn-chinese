@@ -1,3 +1,4 @@
+import Vue from 'vue'
 export default {
   setCurrentLevel (state, level) {
     state.currentLevel = level
@@ -12,5 +13,17 @@ export default {
   },
   previousSlide (state) {
     state.currentSlideIndex = Math.max(0, state.currentSlideIndex - 1)
+  },
+  modelLoaded (state, { model, modelName }) {
+    Vue.set(state.models, modelName, model)
+  },
+  modelLoading (state, { modelName }) {
+    Vue.set(state.models, modelName, { loading: true })
+  },
+  modelNotLoaded (state, { modelName, error }) {
+    Vue.set(state.models, modelName, { error })
+  },
+  setCurrentDrawingValid (state, isValid) {
+    state.currentDrawingValid = isValid
   }
 }
