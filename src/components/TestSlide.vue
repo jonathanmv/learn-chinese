@@ -30,7 +30,6 @@ export default {
     this.reset()
   },
   updated () {
-    console.log('updated')
     this.reset()
   }
 }
