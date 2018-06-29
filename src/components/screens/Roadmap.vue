@@ -1,15 +1,17 @@
 <template lang="html">
-  <div class="">
-    <h1 class="text-center">Chinese</h1>
-    <b-card-group deck>
-      <b-card v-for="level in levels" :title="level.title" :key="level.pathName">
-        <p class="card-text">
-          {{level.description}}
-        </p>
-        <b-button @click="setCurrentLevel(level)" variant="primary">Start</b-button>
-      </b-card>
-    </b-card-group>
-  </div>
+  <v-flex>
+    <v-card v-for="level in levels" :key="level.pathName">
+      <v-card-title primary-title>
+        <div>
+          <h3 class="headline mb-0">{{level.title}}</h3>
+          <div>{{level.description}}</div>
+        </div>
+      </v-card-title>
+      <v-card-actions>
+        <v-btn @click="setCurrentLevel(level)" flat color="primary">Start</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-flex>
 </template>
 
 <script>

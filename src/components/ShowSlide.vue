@@ -1,9 +1,11 @@
 <template lang="html">
-  <div class="">
-    <h1 class="display-4 text-center">{{slide.title}}</h1>
-    <b-img fluid-grow :src="slide.sampleUri" />
-    <p class="lead text-center">{{slide.description}}</p>
-  </div>
+  <v-flex class="text-xs-center">
+    <h1 class="display-1">{{slide.title}}</h1>
+    <v-avatar tile size="80%">
+      <img :src="slide.sampleUri"/>
+    </v-avatar>
+    <p class="blockquote">{{slide.description}}</p>
+  </v-flex>
 </template>
 
 <script>

@@ -1,11 +1,20 @@
 <template>
-  <b-container id="app" fluid>
-    <b-row align-h="center">
-      <b-col sm="12" md="8" lg="6">
-        <router-view />
-      </b-col>
-    </b-row>
-  </b-container>
+  <v-app>
+    <v-navigation-drawer app></v-navigation-drawer>
+    <v-toolbar app>
+      <v-toolbar-title>Chinese</v-toolbar-title>
+    </v-toolbar>
+    <v-content>
+      <v-container fluid>
+        <v-layout>
+          <v-flex xs12 sm6 offset-sm3>
+            <router-view />
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+    <v-footer app></v-footer>
+  </v-app>
 </template>
 
 <script>
@@ -15,10 +24,4 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
 </style>

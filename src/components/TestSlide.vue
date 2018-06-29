@@ -1,9 +1,9 @@
 <template lang="html">
-  <div class="">
-    <h1 class="display-4 text-center">{{slide.title}}</h1>
+  <v-flex class="text-xs-center">
+    <h1 class="display-1">{{slide.title}}</h1>
     <TestChalkboard ref="board" @check="checkDrawing" />
-    <p class="lead text-center">{{slide.description}}</p>
-  </div>
+    <p class="blockquote">{{slide.description}}</p>
+  </v-flex>
 </template>
 
 <script>
