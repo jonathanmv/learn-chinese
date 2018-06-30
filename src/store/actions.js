@@ -34,5 +34,8 @@ export default {
   },
   setCurrentDrawingValid ({ commit }, isValid) {
     commit('setCurrentDrawingValid', isValid)
+  },
+  levelCompleted ({ dispatch }) {
+    dispatch('closeLesson')
   }
 }

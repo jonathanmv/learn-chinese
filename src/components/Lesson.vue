@@ -11,8 +11,9 @@
     <v-flex xs12 class="pt-3">
       <ShowSlide v-if="currentSlide.type === 'show'" :slide="currentSlide" />
       <TestSlide v-if="currentSlide.type === 'test'" :slide="currentSlide" />
+      <CompletedSlide v-if="currentSlide.type === 'completed'" :slide="currentSlide" />
     </v-flex>
-    <v-footer height="auto" absolute>
+    <v-footer height="auto" app>
       <v-layout row>
         <v-flex>
           <v-btn v-if="canPreviousSlide" flat @click="previousSlide">
@@ -34,9 +35,10 @@
 import { mapGetters, mapActions } from 'vuex'
 import ShowSlide from '@/components/ShowSlide'
 import TestSlide from '@/components/TestSlide'
+import CompletedSlide from '@/components/CompletedSlide'
 
 export default {
-  components: { ShowSlide, TestSlide },
+  components: { ShowSlide, TestSlide, CompletedSlide },
   computed: {
     ...mapGetters([
       'currentSlide',

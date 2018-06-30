@@ -34,6 +34,11 @@ export default [
         type: 'test',
         description: `Can you guess the number 3? That's it! 3 horizontal lines stacked on top of each other.`,
         goal: 'Sān'
+      },
+      {
+        title: '1, 2, 3',
+        type: 'completed',
+        description: 'Now you can count Yī, Er, Sān in Chinese!'
       }
     ]
   },
