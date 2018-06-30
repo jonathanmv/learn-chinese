@@ -1,13 +1,11 @@
 <template lang="html">
   <v-layout row wrap>
     <v-flex xs12>
-      <Chalkboard ref="paper" :canDraw="canDraw"/>
+      <Chalkboard class="elevation-1" ref="paper" :canDraw="canDraw"/>
     </v-flex>
-    <v-flex>
-      <v-btn v-if="showClear" color="secondary" @click="clear">Try again!</v-btn>
-    </v-flex>
-    <v-flex>
-      <v-btn v-if="showCheck" color="primary" @click="check">Check</v-btn>
+    <v-flex xs8 offset-xs2>
+      <v-btn v-bind:class="[showClear ? '' : 'invisible']" color="secondary" @click="clear">Clear</v-btn>
+      <v-btn v-bind:class="[showCheck ? '' : 'invisible']" color="primary" @click="check">Check</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -44,4 +42,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  .invisible {
+    visibility: hidden;
+    transition: none;
+  }
 </style>
