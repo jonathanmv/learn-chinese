@@ -1,9 +1,15 @@
 <template lang="html">
-  <v-flex>
-    <Chalkboard ref="paper"/>
-    <v-btn color="info" @click="clear">Try again!</v-btn>
-    <v-btn color="primary" @click="check">Check</v-btn>
-  </v-flex>
+  <v-layout row wrap>
+    <v-flex xs12>
+      <Chalkboard ref="paper"/>
+    </v-flex>
+    <v-flex>
+      <v-btn color="info" @click="clear">Try again!</v-btn>
+    </v-flex>
+    <v-flex>
+      <v-btn color="primary" @click="check">Check</v-btn>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>

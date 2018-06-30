@@ -1,8 +1,8 @@
 <template lang="html">
   <v-flex class="text-xs-center">
     <h1 class="display-1">{{slide.title}}</h1>
-    <TestChalkboard ref="board" @check="checkDrawing" />
-    <p class="blockquote">{{slide.description}}</p>
+    <TestChalkboard class="my-5" ref="board" @check="checkDrawing" />
+    <p class="blockquote px-0">{{slide.description}}</p>
   </v-flex>
 </template>
 

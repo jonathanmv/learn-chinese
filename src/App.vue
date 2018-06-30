@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <v-navigation-drawer app></v-navigation-drawer>
-    <v-toolbar app>
+    <!-- <v-navigation-drawer app></v-navigation-drawer> -->
+    <!-- <v-toolbar app>
       <v-toolbar-title>Chinese</v-toolbar-title>
-    </v-toolbar>
+    </v-toolbar> -->
     <v-content>
       <v-container fluid>
         <v-layout>
@@ -13,7 +13,7 @@
         </v-layout>
       </v-container>
     </v-content>
-    <v-footer app></v-footer>
+    <!-- <v-footer app></v-footer> -->
   </v-app>
 </template>
 
