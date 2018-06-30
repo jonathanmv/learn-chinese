@@ -1,13 +1,13 @@
 <template lang="html">
   <v-layout row wrap>
     <v-flex xs12>
-      <Chalkboard ref="paper"/>
+      <Chalkboard ref="paper" :canDraw="canDraw"/>
     </v-flex>
     <v-flex>
-      <v-btn color="info" @click="clear">Try again!</v-btn>
+      <v-btn v-if="showClear" color="secondary" @click="clear">Try again!</v-btn>
     </v-flex>
     <v-flex>
-      <v-btn color="primary" @click="check">Check</v-btn>
+      <v-btn v-if="showCheck" color="primary" @click="check">Check</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -17,6 +17,20 @@ import Chalkboard from '@/components/Chalkboard'
 
 export default {
   components: { Chalkboard },
+  props: {
+    canDraw: {
+      type: Boolean,
+      default: true
+    },
+    showCheck: {
+      type: Boolean,
+      default: true
+    },
+    showClear: {
+      type: Boolean,
+      default: false
+    }
+  },
   methods: {
     clear () {
       this.$refs.paper.clear()

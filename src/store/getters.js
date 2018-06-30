@@ -65,8 +65,6 @@ const getters = {
     const net = new brain.NeuralNetwork()
     net.fromJSON(currentModel.model)
     const interpretation = brain.likely(vector, net)
-    console.log(`actual: ${interpretation}, expected: ${currentGoal}`)
-    console.log(net.run(vector))
     return interpretation === currentGoal
   }
 }

@@ -11,6 +11,10 @@ import getVectorFromCanvas from '@/helpers/getVectorFromCanvas'
 export default {
   name: 'Chalkboard',
   props: {
+    canDraw: {
+      type: Boolean,
+      default: true
+    },
     penColor: {
       // default: '#f4f4f0'
       default: '#404047'
@@ -21,6 +25,15 @@ export default {
     },
     showHits: {
       default: false
+    }
+  },
+  watch: {
+    canDraw (canDraw) {
+      if (canDraw) {
+        this.pad.on()
+      } else {
+        this.pad.off()
+      }
     }
   },
   data: () => ({
