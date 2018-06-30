@@ -17,7 +17,6 @@
     "url": "https://github.com/jonathanmv/shapes-checker.git"
   },
   "dependencies": {
-    "bootstrap-vue": "2.0.0-rc.9",
     "brain.js": "1.2.1",
     "material-design-icons-iconfont": "3.0.3",
     "signature_pad": "2.3.2",

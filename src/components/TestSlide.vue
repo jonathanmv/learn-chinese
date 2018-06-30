@@ -3,6 +3,10 @@
     <h1 class="display-1">{{slide.title}}</h1>
     <TestChalkboard class="my-5" ref="board" @check="checkDrawing" :showCheck="showCheck" :showClear="showClear" :canDraw="canDraw" />
     <p class="blockquote px-0">{{slide.description}}</p>
+    <v-snackbar :timeout="timeout" bottom v-model="showError">
+      Nop! Please try again.
+      <v-btn flat color="pink" @click.native="showError = false">Close</v-btn>
+    </v-snackbar>
   </v-flex>
 </template>
 
@@ -14,9 +18,11 @@ export default {
   props: ['slide'],
   components: { TestChalkboard },
   data: () => ({
+    showError: false,
     showCheck: true,
     showClear: false,
-    canDraw: true
+    canDraw: true,
+    timeout: 2000
   }),
   watch: {
     slide () {
@@ -30,7 +36,10 @@ export default {
     checkDrawing (vector) {
       const isValid = this.$store.getters.isValidDrawing(vector)
       this.setCurrentDrawingValid(isValid)
-      this.canDraw = this.showCheck = this.showClear = !isValid
+      this.canDraw = !isValid
+      this.showCheck = !isValid
+      this.showClear = !isValid
+      this.showError = !isValid
     },
     reset () {
       this.setCurrentDrawingValid(false)
