@@ -33,9 +33,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import ShowSlide from '@/components/ShowSlide'
-import TestSlide from '@/components/TestSlide'
-import CompletedSlide from '@/components/CompletedSlide'
+import ShowSlide from '@/components/slide/ShowSlide'
+import TestSlide from '@/components/slide/TestSlide'
+import CompletedSlide from '@/components/slide/CompletedSlide'
 
 export default {
   components: { ShowSlide, TestSlide, CompletedSlide },
