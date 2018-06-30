@@ -41,10 +41,5 @@ export default [
         description: 'Now you can count Yī, Er, Sān in Chinese!'
       }
     ]
-  },
-  {
-    title: 'Héng and Shù',
-    description: 'What if you add a vertical line?',
-    pathName: 'level/heng-shu'
   }
 ]
