@@ -20,11 +20,11 @@ export default [
       {
         title: 'The number 2',
         type: 'show',
-        description: `Great! If you draw a Héng on top of another Héng you will be drawing the number 2 called Er.`,
+        description: `Great! If you draw a Héng on top of another Héng you will be drawing the number 2 called Èr.`,
         sampleUri: 'static/slides/er.png'
       },
       {
-        title: 'Draw an Er',
+        title: 'Draw an Èr',
         type: 'test',
         description: `Draw a Héng on top of another Héng to form the number 2 in Chinese.`,
         goal: 'Er'
@@ -38,7 +38,45 @@ export default [
       {
         title: '1, 2, 3',
         type: 'completed',
-        description: 'Now you can count Yī, Er, Sān in Chinese!'
+        description: 'Now you can count Yī, Èr, Sān in Chinese!'
+      }
+    ]
+  },
+  {
+    title: 'Vertical Line',
+    description: 'Discover what we can write with simple lines',
+    pathName: 'level/heng-shu',
+    modelName: 'heng-shu-model',
+    slides: [
+      {
+        title: 'Shù',
+        type: 'show',
+        description: 'Another stroke is called Shù. It is just a vertical line.',
+        sampleUri: 'static/slides/shu.png'
+      },
+      {
+        title: 'Shù, a vertical line',
+        type: 'test',
+        description: 'Draw a vertical line to make the Shù stroke',
+        goal: 'Shù'
+      },
+      {
+        title: 'Heng, a horizontal line',
+        type: 'show',
+        description: 'Remember that the stroke Heng is just a horizontal line',
+        sampleUri: 'static/slides/heng.png'
+      },
+      {
+        title: 'Héng and Shù, the number 10',
+        type: 'show',
+        description: 'When you draw a Héng and a Shù you make the number 10 called Shí',
+        sampleUri: 'static/slides/shi.png'
+      },
+      {
+        title: 'Draw Shí, the number 10',
+        type: 'test',
+        description: 'Combine both the Héng (horizontal line) with Shù (vertical line) to make Shí, the number 10.',
+        goal: 'Shí'
       }
     ]
   }

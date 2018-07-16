@@ -1,4 +1,3 @@
-import brain from 'brain.js'
 
 const getters = {
   levels: ({ levels }) => levels,
@@ -30,7 +29,7 @@ const getters = {
   canPreviousSlide ({ currentSlideIndex }) {
     return currentSlideIndex > 0
   },
-  canNextSlide ({ currentSlideIndex, currentDrawingValid }, { currentSlide, totalSlides, isValidDrawing }) {
+  canNextSlide ({ currentSlideIndex }, { currentSlide, totalSlides, isCurrentDrawingValid }) {
     const hasNext = currentSlideIndex + 1 < totalSlides
     if (!hasNext) {
       return false
@@ -39,7 +38,7 @@ const getters = {
     const type = currentSlide ? currentSlide.type : 'none'
     switch (type) {
       case 'test':
-        return currentDrawingValid
+        return isCurrentDrawingValid
       default:
         return true
     }
@@ -52,20 +51,8 @@ const getters = {
     return models[modelName]
   },
   getModelByName: ({ models }) => name => models[name],
-  isValidDrawing: (store, { currentModel, currentGoal, getModelByName }) => vector => {
-    if (!currentGoal) {
-      console.log('No current goal')
-      return false
-    }
-    if (!currentModel) {
-      console.log('No current model')
-      return false
-    }
-
-    const net = new brain.NeuralNetwork()
-    net.fromJSON(currentModel.model)
-    const interpretation = brain.likely(vector, net)
-    return interpretation === currentGoal
+  isCurrentDrawingValid: ({ currentInterpretation }, { currentGoal }) => {
+    return currentInterpretation === currentGoal
   }
 }
 

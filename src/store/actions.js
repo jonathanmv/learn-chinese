@@ -1,4 +1,5 @@
 import router from '../router'
+import brain from 'brain.js'
 
 export default {
   setCurrentLevel ({ commit, dispatch }, level) {
@@ -17,7 +18,12 @@ export default {
     } else {
       commit('modelLoading', { modelName })
       return import(`./models/${modelName}.json`)
-        .then(model => commit('modelLoaded', { modelName, model }))
+        .then(model => {
+          commit('modelLoaded', { modelName, model })
+          const net = new brain.NeuralNetwork()
+          net.fromJSON(model.model)
+          commit('setCurrentNet', net)
+        })
         .catch(error => commit('modelNotLoaded', { modelName, error }))
     }
   },
@@ -32,10 +38,18 @@ export default {
   nextSlide ({ commit }) {
     commit('nextSlide')
   },
-  setCurrentDrawingValid ({ commit }, isValid) {
-    commit('setCurrentDrawingValid', isValid)
-  },
   levelCompleted ({ dispatch }) {
     dispatch('closeLesson')
+  },
+  evaluateVector ({ commit, state }, vector) {
+    const { currentNet } = state
+    if (!currentNet) {
+      console.log('No current net')
+      return
+    }
+
+    const interpretation = brain.likely(vector, currentNet)
+    // console.log(currentNet.run(vector))
+    commit('setCurrentInterpretation', interpretation)
   }
 }

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import TestChalkboard from '@/components/TestChalkboard'
 
 export default {
@@ -29,20 +29,24 @@ export default {
       this.reset()
     }
   },
+  computed: {
+    ...mapGetters([
+      'isCurrentDrawingValid'
+    ])
+  },
   methods: {
     ...mapActions([
-      'setCurrentDrawingValid'
+      'setCurrentDrawingValid',
+      'evaluateVector'
     ]),
     checkDrawing (vector) {
-      const isValid = this.$store.getters.isValidDrawing(vector)
-      this.setCurrentDrawingValid(isValid)
-      this.canDraw = !isValid
-      this.showCheck = !isValid
-      this.showClear = !isValid
-      this.showError = !isValid
+      this.evaluateVector(vector)
+      this.canDraw = !this.isCurrentDrawingValid
+      this.showCheck = !this.isCurrentDrawingValid
+      this.showClear = !this.isCurrentDrawingValid
+      this.showError = !this.isCurrentDrawingValid
     },
     reset () {
-      this.setCurrentDrawingValid(false)
       this.$refs.board.clear()
       this.showCheck = true
       this.showClear = false

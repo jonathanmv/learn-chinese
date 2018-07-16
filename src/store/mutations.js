@@ -4,6 +4,9 @@ export default {
     state.currentLevel = level
     state.currentSlideIndex = 0
   },
+  setCurrentNet (state, net) {
+    state.currentNet = net
+  },
   closeLesson (state) {
     state.currentLevel = null
     state.currentSlideIndex = 0
@@ -25,5 +28,8 @@ export default {
   },
   setCurrentDrawingValid (state, isValid) {
     state.currentDrawingValid = isValid
+  },
+  setCurrentInterpretation (state, interpretation) {
+    state.currentInterpretation = interpretation
   }
 }

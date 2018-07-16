@@ -11,8 +11,9 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     currentLevel: null,
+    currentNet: null,
+    currentInterpretation: null,
     currentSlideIndex: 0,
-    currentDrawingValid: false,
     levels,
     models: {}
   },
