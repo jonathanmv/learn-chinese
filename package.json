@@ -1,5 +1,5 @@
 {
-  "name": "shapes-checker",
+  "name": "learn-chinese",
   "version": "1.0.0",
   "description": "Train the computer in shapes and then test its knowledge",
   "author": "Jonathan Morales Vélez <jonathanmv@outlook.com>",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonathanmv/shapes-checker.git"
+    "url": "https://github.com/jonathanmv/learn-chinese.git"
   },
   "dependencies": {
     "brain.js": "1.2.1",
