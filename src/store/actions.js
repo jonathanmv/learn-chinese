@@ -1,6 +1,6 @@
 import router from '../router'
 import brain from 'brain.js'
-let lastVector = []
+
 export default {
   setCurrentLevel ({ commit, dispatch }, level) {
     commit('setCurrentLevel', level)
