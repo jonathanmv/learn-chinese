@@ -18,12 +18,7 @@ export default {
     } else {
       commit('modelLoading', { modelName })
       return import(`./models/${modelName}.json`)
-        .then(model => {
-          commit('modelLoaded', { modelName, model })
-          const net = new brain.NeuralNetwork()
-          net.fromJSON(model.model)
-          commit('setCurrentNet', net)
-        })
+        .then(model => commit('modelLoaded', { modelName, model }))
         .catch(error => commit('modelNotLoaded', { modelName, error }))
     }
   },

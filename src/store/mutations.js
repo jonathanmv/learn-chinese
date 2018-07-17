@@ -1,8 +1,20 @@
 import Vue from 'vue'
-export default {
+import brain from 'brain.js'
+
+const mutations = {
   setCurrentLevel (state, level) {
     state.currentLevel = level
     state.currentSlideIndex = 0
+    mutations.setCurrentNetBasedOnCurrentLevel(state)
+  },
+  setCurrentNetBasedOnCurrentLevel (state) {
+    const { modelName } = state.currentLevel
+    const model = state.models[modelName]
+    if (model) {
+      const net = new brain.NeuralNetwork()
+      net.fromJSON(model.model)
+      state.currentNet = net
+    }
   },
   setCurrentNet (state, net) {
     state.currentNet = net
@@ -19,6 +31,7 @@ export default {
   },
   modelLoaded (state, { model, modelName }) {
     Vue.set(state.models, modelName, model)
+    mutations.setCurrentNetBasedOnCurrentLevel(state)
   },
   modelLoading (state, { modelName }) {
     Vue.set(state.models, modelName, { loading: true })
@@ -33,3 +46,5 @@ export default {
     state.currentInterpretation = interpretation
   }
 }
+
+export default mutations
