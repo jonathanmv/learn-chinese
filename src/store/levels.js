@@ -77,7 +77,43 @@ export default [
         type: 'test',
         description: 'Combine both the Héng (horizontal line) with Shù (vertical line) to make Shí, the number 10.',
         goal: 'Shí'
+      },
+      {
+        title: '10 + 1 = 11',
+        type: 'test',
+        description: 'Drawing Yī (number 1) next to Shí (number 10) makes Shíyī, the number 11',
+        goal: 'null' // There's an error in the model and this goal was named null
+      },
+      {
+        title: '10 + 2 = 12',
+        type: 'test',
+        description: 'Drawing Èr (number 2) next to Shí (number 10) makes Shí\'èr, the number 12',
+        goal: 'Shí\'èr'
+      },
+      {
+        title: '10 + 3 = 13',
+        type: 'test',
+        description: 'Drawing Sān (number 3) next to Shí (number 10) makes Shísān, the number 13',
+        goal: 'Shísān'
+      },
+      {
+        title: '3 x 10 = 30',
+        type: 'test',
+        description: `Now let's change the order. Place the number 3 (Sān) before the number 10 (Shí) to form the number 30 (Sānshí)`,
+        goal: 'Sānshí'
+      },
+      {
+        title: '2 x 10 = 20',
+        type: 'test',
+        description: `Try the same with the number 2 (Èr). Place it before the number 10 (Shí) to form the number 20 (Èrshí)`,
+        goal: 'Èrshí'
+      },
+      {
+        title: 'Héng and Shù strokes',
+        type: 'completed',
+        description: 'Just with horizontal and vertical lines we can now write the numbers 1, 2, 3, 10, 11, 12, 13, 20, 30. And we could also write 21 like 二十一. Congratulations!'
       }
     ]
   }
 ]
+ // Shù Shí Shíyī Shí'èr Shísān Èrshí Sānshí
