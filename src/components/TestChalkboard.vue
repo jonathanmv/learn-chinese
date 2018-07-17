@@ -34,7 +34,7 @@ export default {
       this.$refs.paper.clear()
     },
     check () {
-      const vector = this.$refs.paper.getImageVector()
+      const vector = this.$refs.paper.getImageVector(10)
       this.$emit('check', vector)
     }
   }

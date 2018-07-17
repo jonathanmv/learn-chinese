@@ -27,7 +27,7 @@ export default [
         title: 'Draw an Èr',
         type: 'test',
         description: `Draw a Héng on top of another Héng to form the number 2 in Chinese.`,
-        goal: 'Er'
+        goal: 'Èr'
       },
       {
         title: 'Sān, the number 3',
