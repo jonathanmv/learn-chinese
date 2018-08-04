@@ -146,6 +146,18 @@ export default [
         goal: 'Gàn'
       },
       {
+        title: 'Now the word "King"',
+        type: 'show',
+        description: 'Wáng refers to the King like the ones in medieval times.',
+        sampleText: '王'
+      },
+      {
+        title: 'Draw the word "King"',
+        type: 'test',
+        description: `Wáng is composed of 4 strokes, it's basically an uppercased I with a strike.`,
+        goal: 'Wáng'
+      },
+      {
         title: 'Now the word "Above"',
         type: 'show',
         description: 'Shàng is used to describe that something is on top of another thing.',
