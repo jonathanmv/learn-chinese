@@ -8,7 +8,6 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '/', name: 'Roadmap', component: Roadmap },
-    { path: '/level/heng', name: 'level/heng', component: Lesson },
-    { path: '/level/heng-shu', name: 'level/heng-shu', component: Lesson }
+    { path: '/level/*', component: Lesson }
   ]
 })

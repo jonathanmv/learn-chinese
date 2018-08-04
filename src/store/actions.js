@@ -4,8 +4,8 @@ import brain from 'brain.js'
 export default {
   setCurrentLevel ({ commit, dispatch }, level) {
     commit('setCurrentLevel', level)
-    const { pathName: name, modelName } = level
-    router.push({ name })
+    const { pathName: path, modelName } = level
+    router.push({ path })
     if (modelName) {
       dispatch('loadModel', modelName)
     }

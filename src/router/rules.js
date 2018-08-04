@@ -1,8 +1,6 @@
-const getPathName = ({ matched }) => {
-  if (matched && matched.length) {
-    return matched[0].name
-  }
-  return null
+const getPathName = ({ path }) => {
+  const name = path && path.length ? path.slice(1) : null
+  return name
 }
 
 const getLevelWithPathName = (store, name) => {

@@ -4,9 +4,14 @@
       <h1 class="display-1">{{slide.title}}</h1>
     </v-flex>
     <v-flex xs8 offset-xs2>
-      <v-avatar tile size="80%" class="my-5">
+      <v-avatar v-if="slide.sampleUri" tile size="80%" class="my-5">
         <img :src="slide.sampleUri"/>
       </v-avatar>
+      <v-card v-else class="ma-5 pa-5">
+        <v-card-text>
+          <p class="text-xs-center display-4">{{slide.sampleText}}</p>
+        </v-card-text>
+      </v-card>
     </v-flex>
     <v-flex xs12>
       <p class="blockquote px-0">{{slide.description}}</p>
@@ -21,4 +26,7 @@ export default {
 </script>
 
 <style lang="css">
+  .huge {
+    font-size: 6rem;
+  }
 </style>
