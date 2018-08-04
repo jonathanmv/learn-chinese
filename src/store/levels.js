@@ -82,7 +82,7 @@ export default [
         title: '10 + 1 = 11',
         type: 'test',
         description: 'Drawing Yī (number 1) next to Shí (number 10) makes Shíyī, the number 11',
-        goal: 'null' // There's an error in the model and this goal was named null
+        goal: 'Shíyī' // There's an error in the model and this goal was named null
       },
       {
         title: '10 + 2 = 12',
