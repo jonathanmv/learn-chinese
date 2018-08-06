@@ -7,7 +7,7 @@
       <v-avatar v-if="slide.sampleUri" tile size="80%" class="my-5">
         <img :src="slide.sampleUri"/>
       </v-avatar>
-      <v-card v-else class="ma-5 pa-5">
+      <v-card v-else class="mx-1 my-5 pa-3">
         <v-card-text>
           <p class="text-xs-center display-4">{{slide.sampleText}}</p>
         </v-card-text>

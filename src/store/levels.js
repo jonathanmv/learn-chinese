@@ -82,7 +82,7 @@ export default [
         title: '10 + 1 = 11',
         type: 'test',
         description: 'Drawing Yī (number 1) next to Shí (number 10) makes Shíyī, the number 11',
-        goal: 'Shíyī' // There's an error in the model and this goal was named null
+        goal: 'Shíyī'
       },
       {
         title: '10 + 2 = 12',
@@ -172,7 +172,7 @@ export default [
       {
         title: 'Now the word "Mountain"',
         type: 'show',
-        description: 'Shān the word for mountain and it has 4 strokes, in this case is the Shù that is repeated 3 times, while the Héng appears only once.',
+        description: 'Shān is the word for mountain and it has 4 strokes, in this case is the Shù that is repeated 3 times, while the Héng appears only once.',
         sampleText: '山'
       },
       {
